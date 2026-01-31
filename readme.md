@@ -30,9 +30,16 @@ DB_PASS=password
 DB_NAME=klink
 ```
 
-4. Move content to `htdocs` and start server with XAMPP.
+4. Move folder to `c:/xampp/htdocs` and start server with XAMPP.
 
-5. Now you can visit website via `http://localhost`.
+5. Change path to the folder in `c:/xampp/apache/conf/httpd.conf`:
+```
+DocumentRoot "C:/xampp/htdocs/klink/public"
+<Directory "C:/xampp/htdocs/klink/public">
+</Directory>
+```
+
+6. Now you can visit website via `http://localhost`.
 
 ### Docker Setup (Recommended)
 
@@ -42,5 +49,17 @@ docker-compose up --build
 ```
 
 2. Now you can visit website via `http://localhost:8080`.
+
+## Testing
+
+Automated tests are implemented using **PHPUnit** and are intended to verify the core functionality of the application, including database interactions and business logic. Before running tests locally, make sure that all project dependencies are installed via **Composer** and that a test database connection is available.
+```
+composer install
+vendor\bin\phpunit
+```
+> [!NOTE]
+> All users have credentials in the following format: `name123`.
+>
+> For example, the admin account uses: `admin / admin123`, Daniel Thompson: `t.daniel / daniel123`
 
 ![klink preview](./media/dashboard_preview_admin.png)

@@ -14,7 +14,7 @@
         }
 
         public function testCsrfTokenGeneration() {
-            require_once __DIR__ . '/../helpers/csrf.php';
+            require_once __DIR__ . '/../public/helpers/csrf.php';
             
             $token1 = csrf_token();
             $this->assertNotEmpty($token1);
@@ -22,7 +22,7 @@
         }
 
         public function testCsrfTokenConsistency() {
-            require_once __DIR__ . '/../helpers/csrf.php';
+            require_once __DIR__ . '/../public/helpers/csrf.php';
             
             $token1 = csrf_token();
             $token2 = csrf_token();
@@ -31,7 +31,7 @@
         }
 
         public function testCsrfTokenSessionStorage() {
-            require_once __DIR__ . '/../helpers/csrf.php';
+            require_once __DIR__ . '/../public/helpers/csrf.php';
             
             csrf_token();
             $this->assertNotEmpty($_SESSION['csrf_token']);
@@ -39,14 +39,14 @@
         }
 
         public function testCsrfTokenIsHexadecimal() {
-            require_once __DIR__ . '/../helpers/csrf.php';
+            require_once __DIR__ . '/../public/helpers/csrf.php';
             
             $token = csrf_token();
             $this->assertTrue(ctype_xdigit($token));
         }
 
         public function testCsrfCheckPassesWithValidToken() {
-            require_once __DIR__ . '/../helpers/csrf.php';
+            require_once __DIR__ . '/../public/helpers/csrf.php';
             
             $_SERVER['REQUEST_METHOD'] = 'POST';
             $token = csrf_token();
@@ -63,7 +63,7 @@
 
         /** @runInSeparateProcess */
         public function testCsrfCheckFailsWithInvalidToken() {
-            require_once __DIR__ . '/../helpers/csrf.php';
+            require_once __DIR__ . '/../public/helpers/csrf.php';
             
             $_SERVER['REQUEST_METHOD'] = 'POST';
             csrf_token();
@@ -77,7 +77,7 @@
         /** @runInSeparateProcess */
 
         public function testCsrfCheckFailsWithMissingToken() {
-            require_once __DIR__ . '/../helpers/csrf.php';
+            require_once __DIR__ . '/../public/helpers/csrf.php';
             
             $_SERVER['REQUEST_METHOD'] = 'POST';
             csrf_token();
@@ -89,7 +89,7 @@
         }
 
         public function testCsrfCheckBypassOnGetRequest() {
-            require_once __DIR__ . '/../helpers/csrf.php';
+            require_once __DIR__ . '/../public/helpers/csrf.php';
             
             $_SERVER['REQUEST_METHOD'] = 'GET';
             $_POST = [];
@@ -104,7 +104,7 @@
 
         /** @runInSeparateProcess */
         public function testCsrfCheckWithEmptySessionToken() {
-            require_once __DIR__ . '/../helpers/csrf.php';
+            require_once __DIR__ . '/../public/helpers/csrf.php';
             
             $_SERVER['REQUEST_METHOD'] = 'POST';
             $_POST['csrf_token'] = 'some_token';

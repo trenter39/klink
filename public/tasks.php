@@ -1,6 +1,6 @@
 <?php
-    require "config/db.php";
-    require "config/auth_check.php";
+    require __DIR__ . "/config/db.php";
+    require __DIR__ . "/config/auth_check.php";
 
     $userID = (int)$_SESSION['user_id'];
     $role = $_SESSION['role'];
@@ -13,7 +13,7 @@
     } elseif ($role === 'admin') {
         $title = 'All tasks';
     }
-    // Fetch employee name if viewing specific employee's tasks
+
     $employeeName = null;
     if ($viewUserID !== $userID) {
         $nameQuery = "select full_name from users where id = $viewUserID";

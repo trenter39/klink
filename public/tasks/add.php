@@ -1,6 +1,6 @@
 <?php
-    require "../config/db.php";
-    require "../config/auth_check.php";
+    require __DIR__ . "/../config/db.php";
+    require __DIR__ . "/../config/auth_check.php";
 
     $selectedUserID = null;
     $selectedUserFullName = '';

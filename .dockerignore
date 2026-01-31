@@ -8,5 +8,7 @@ composer.lock
 phpunit.xml
 vendor
 tests
+media
 
 .github
+readme.md

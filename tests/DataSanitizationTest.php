@@ -17,7 +17,7 @@
         }
 
         public function testXSSPayloadEscaping() {
-            require_once __DIR__ . '/../helpers/security.php';
+            require_once __DIR__ . '/../public/helpers/security.php';
             
             $xssPayload = '<img src=x onerror=alert("xss")>';
             $escaped = e($xssPayload);
@@ -27,7 +27,7 @@
         }
 
         public function testEventHandlerEscaping() {
-            require_once __DIR__ . '/../helpers/security.php';
+            require_once __DIR__ . '/../public/helpers/security.php';
             
             $payload = '" onclick="alert(\'xss\')" data="';
             $escaped = e($payload);
@@ -36,7 +36,7 @@
         }
 
         public function testAttributeInjectionPrevention() {
-            require_once __DIR__ . '/../helpers/security.php';
+            require_once __DIR__ . '/../public/helpers/security.php';
             
             $userInput = '"><script>alert(1)</script>';
             $escaped = e($userInput);
@@ -45,7 +45,7 @@
         }
 
         public function testUnicodeEscaping() {
-            require_once __DIR__ . '/../helpers/security.php';
+            require_once __DIR__ . '/../public/helpers/security.php';
             
             $input = 'Test \u0022 Unicode';
             $escaped = e($input);
@@ -54,7 +54,7 @@
         }
 
         public function testEmptyValueSanitization() {
-            require_once __DIR__ . '/../helpers/security.php';
+            require_once __DIR__ . '/../public/helpers/security.php';
             
             $empty = '';
             $escaped = e($empty);

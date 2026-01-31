@@ -1,7 +1,7 @@
 <?php 
-    require "../config/db.php";
-    require "../helpers/security.php";
-    require "../helpers/csrf.php";
+    require __DIR__ . "/../config/db.php";
+    require __DIR__ . "/../helpers/security.php";
+    require __DIR__ . "/../helpers/csrf.php";
 
     csrf_check();
 

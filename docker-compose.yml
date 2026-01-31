@@ -13,7 +13,7 @@ services:
       DB_NAME: klink
 
     volumes:
-      - .:/var/www/html
+      - ./public:/var/www/klink/public
   
   db:
     image: mysql:8.0

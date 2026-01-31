@@ -5,7 +5,7 @@
     class SecurityFunctionsTest extends TestCase {
         
         public function testEscapingSimpleString() {
-            require_once __DIR__ . '/../helpers/security.php';
+            require_once __DIR__ . '/../public/helpers/security.php';
             
             $input = '<script>alert("xss")</script>';
             $output = e($input);
@@ -15,7 +15,7 @@
         }
 
         public function testEscapingHtmlEntities() {
-            require_once __DIR__ . '/../helpers/security.php';
+            require_once __DIR__ . '/../public/helpers/security.php';
             
             $input = '"double quotes"';
             $output = e($input);
@@ -24,7 +24,7 @@
         }
 
         public function testEscapingSingleQuotes() {
-            require_once __DIR__ . '/../helpers/security.php';
+            require_once __DIR__ . '/../public/helpers/security.php';
             
             $input = "'single quotes'";
             $output = e($input);
@@ -33,7 +33,7 @@
         }
 
         public function testEscapingAmpersand() {
-            require_once __DIR__ . '/../helpers/security.php';
+            require_once __DIR__ . '/../public/helpers/security.php';
             
             $input = 'Jack & Jill';
             $output = e($input);
@@ -42,7 +42,7 @@
         }
 
         public function testEscapingPreservesContent() {
-            require_once __DIR__ . '/../helpers/security.php';
+            require_once __DIR__ . '/../public/helpers/security.php';
             
             $input = 'Hello World';
             $output = e($input);
@@ -51,7 +51,7 @@
         }
 
         public function testEscapingIntegerInput() {
-            require_once __DIR__ . '/../helpers/security.php';
+            require_once __DIR__ . '/../public/helpers/security.php';
             
             $input = 12345;
             $output = e($input);
@@ -60,7 +60,7 @@
         }
 
         public function testEscapingNullInput() {
-            require_once __DIR__ . '/../helpers/security.php';
+            require_once __DIR__ . '/../public/helpers/security.php';
             
             $input = null;
             $output = e($input);
@@ -69,7 +69,7 @@
         }
 
         public function testEscapingComplexHtmlInjection() {
-            require_once __DIR__ . '/../helpers/security.php';
+            require_once __DIR__ . '/../public/helpers/security.php';
             
             $input = '<img src=x onerror="alert(\'xss\')" />';
             $output = e($input);
@@ -79,7 +79,7 @@
         }
 
         public function testEscapingMultilineContent() {
-            require_once __DIR__ . '/../helpers/security.php';
+            require_once __DIR__ . '/../public/helpers/security.php';
             
             $input = "Line 1\nLine 2\n<script>alert('xss')</script>";
             $output = e($input);
