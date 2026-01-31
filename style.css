@@ -128,6 +128,7 @@ input[type="password"],
 input[type="date"],
 select,
 textarea {
+    font-family: inherit;
     width: 100%;
     padding: 12px 14px;
     border-radius: 8px;

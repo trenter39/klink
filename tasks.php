@@ -60,9 +60,9 @@
     <h1 id="logo"><a href="dashboard.php">Klink</a></h1>
     <div class="subbar">
         <h2><?= e($title) ?></h2>
-        <?php if ($role === 'admin'): ?>
+        <?php if ($role === 'admin' && $viewUserID !== $userID): ?>
             <a href="tasks/add.php<?= $viewUserID ? '?user_id=' . $viewUserID : '' ?>">+ Add task</a>
-        <?php elseif($viewUserID === $userID && $role === 'employee'): ?>
+        <?php elseif(($viewUserID === $userID && $role === 'employee') || $role === 'admin'): ?>
             <a href="tasks/add.php">+ Add task</a>
         <?php endif; ?>
     </div>

@@ -1,0 +1,32 @@
+services:
+  app:
+    build: .
+    container_name: klink_app
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_USER: klink
+      DB_PASS: klink_pass
+      DB_NAME: klink
+
+    volumes:
+      - .:/var/www/html
+  
+  db:
+    image: mysql:8.0
+    container_name: klink_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: klink
+      MYSQL_USER: klink
+      MYSQL_PASSWORD: klink_pass
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql
+
+volumes:
+  db_data:

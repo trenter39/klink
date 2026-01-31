@@ -1,0 +1,12 @@
+.git
+.gitignore
+
+.env
+
+composer.json
+composer.lock
+phpunit.xml
+vendor
+tests
+
+.github

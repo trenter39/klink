@@ -1,10 +1,10 @@
 <?php
     $env = parse_ini_file(__DIR__ . '/../.env');
 
-    $host = $env['DB_HOST'];
-    $user = $env['DB_USER'];
-    $pass = $env['DB_PASS'];
-    $db = $env['DB_NAME'];
+    $host = getenv('DB_HOST') ?: $env['DB_HOST'];
+    $user = getenv('DB_USER') ?: $env['DB_USER'];
+    $pass = getenv('DB_PASS') ?: $env['DB_PASS'];
+    $db = getenv('DB_NAME') ?: $env['DB_NAME'];
 
     $conn = mysqli_connect($host, $user, $pass, $db);
 
